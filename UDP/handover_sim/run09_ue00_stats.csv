@@ -915,12 +915,13 @@ Time,Rx_ID,Rx_Delay,Rx_Gap,Inst_Tp,Avg_Tp,LossRate
 19.956,914,0.00484458,0.02,0,48216.9,0.0348469
 19.976,915,0.00484458,0.02,0,48218.8,0.0348101
 19.996,916,0.00484458,0.02,50000,48220.7,0.0347734
+,,,,,,
+Final Statistics,,,,,,
+Frames Received(Current/Total): 916/949,,,,,,
+Total Bytes Received: 916000 bytes,,,,,,
+Average Delay: 0.00774633 seconds,,,,,,
+Average Throughput: 48210.5 bytes/sec,,,,,,
+Frame Loss Rate: 3.47734%,,,,,,
 
-Final Statistics
-Frames Received(Current/Total): 916/949
-Total Bytes Received: 916000 bytes
-Average Delay: 0.00774633 seconds
-Average Throughput: 48210.5 bytes/sec
-Frame Loss Rate: 3.47734%
 
 
