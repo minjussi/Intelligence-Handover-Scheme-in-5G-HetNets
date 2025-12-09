@@ -8,5 +8,9 @@ This paper conducts experiments to measure TCP and UDP performance on 5G heterog
 
 ## Implementation
 
-- Environment: OMNeT++
+- Environment: OMNeT++ & Simu5G framework
+
+- TCP:
+
+- UDP: 
 
