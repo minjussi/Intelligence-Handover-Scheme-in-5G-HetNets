@@ -15,22 +15,29 @@ This paper conducts experiments to measure TCP and UDP performance on 5G heterog
 Receiver Side:
 
 1.	initialize (): Binds the socket to a port and listens for incoming connections. 
-2.	handleMessage (): Passes incoming messages to the socket.processMessage() method. This handles TCP state (SYN, ACK, FIN) and triggers specific callbacks, for example, socketDataArrived() function. 
-3.	socketDataArrived (): If valid application data is delivered from previous function, then this function calls. In this function, it measures the statistical values, such as packet delay, throughput, inter-packet gap, and packet loss rate. 
+2.	handleMessage (): Passes incoming messages to the socket.processMessage() method.
+This handles TCP state (SYN, ACK, FIN) and triggers specific callbacks, for example, socketDataArrived() function. 
+3.	socketDataArrived (): If valid application data is delivered from previous function, then this function calls.
+In this function, it measures the statistical values, such as packet delay, throughput, inter-packet gap, and packet loss rate. 
 4.	finish (): Closes the TCP socket and records final statistical results to csv files. 
 ```
 ```
 Sender Side:
 
-1.	initialize (): Sets up the connection parameters such as destination IP and port. Then, it calls socket.connect() to initiate the 3-way handshake with the receiver.
-2.	handleMessage (): Checks if the message is a self-message. If the timer expires and the connection is established, it calls sendPacket() function and reschedules the next transmission event based on the defined sampling time. (In this simulation, the sampling time is 0.1 seconds.)
-3.	sendPacket (): Encapsulates the payload into a packet. It sets the sequence ID and embeds the current simulation time. Then, it sends the packet through the TCP socket. 
+1.	initialize (): Sets up the connection parameters such as destination IP and port.
+Then, it calls socket.connect() to initiate the 3-way handshake with the receiver.
+2.	handleMessage (): Checks if the message is a self-message. If the timer expires and the connection is established,
+it calls sendPacket() function and reschedules the next transmission event based on the defined sampling time.
+(In this simulation, the sampling time is 0.1 seconds.)
+3.	sendPacket (): Encapsulates the payload into a packet. It sets the sequence ID and embeds the current simulation time.
+Then, it sends the packet through the TCP socket. 
 ```
 
 - UDP: UDP protocol does not manage connection states.
 ```
 1.	initialize (): Sets up variables. 
-2.	handleMessage (): Checks if the message is a self-message or data packet. If the message is data, then it extracts the file packet, updates statistics, and deletes the packet. 
+2.	handleMessage (): Checks if the message is a self-message or data packet.
+If the message is data, then it extracts the file packet, updates statistics, and deletes the packet. 
 3.	finish (): Records final statistics to csv files.
 ```
 
@@ -44,6 +51,7 @@ Sender Side:
 <img width="940" height="291" alt="image" src="https://github.com/user-attachments/assets/a2df918a-2eec-473b-97d8-fe7a844494ed" />
 (UDP)
 
+
 > TCP maintained high stability with 0% packet loss even as UEs increased to 50. This proves that TCP flow control worked effectively. In contrast, UDP performance decreased sharply. As the load increased, the loss rate soared 88%. This indicates that UDP flooded the network, causing severe Congestion Collapse.
 
 **2. Payload size (100B to 500B)**
@@ -53,6 +61,7 @@ Sender Side:
 
 <img width="940" height="277" alt="image" src="https://github.com/user-attachments/assets/86e17aa4-cd03-4a5a-b7d1-fe5e097e4238" />
 (UDP)
+
 
 > For TCP, as the payload size increased, the throughput increased linearly. However, for UDP, larger packets filled the gNB buffers more quickly, worsening the congestion and leading to higher packet loss.
 
