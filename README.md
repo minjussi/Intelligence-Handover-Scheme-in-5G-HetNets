@@ -10,7 +10,7 @@ This paper conducts experiments to measure TCP and UDP performance on 5G heterog
 
 - Environment: OMNeT++ & Simu5G framework
 
-- TCP: TCP involves state management on both Receiver and Sender sides to handle connection-oriented communication.
+- **TCP**: TCP involves state management on both Receiver and Sender sides to handle connection-oriented communication.
 ``` 
 Receiver Side:
 
@@ -33,7 +33,7 @@ it calls sendPacket() function and reschedules the next transmission event based
 Then, it sends the packet through the TCP socket. 
 ```
 
-- UDP: UDP protocol does not manage connection states.
+- **UDP**: UDP protocol does not manage connection states.
 ```
 1.	initialize (): Sets up variables. 
 2.	handleMessage (): Checks if the message is a self-message or data packet.
