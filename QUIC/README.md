@@ -9,7 +9,7 @@ This directory is reserved for implementing **QUIC** (Quick UDP Internet Connect
 ### Status: Preparing
 * **Previous Work:** TCP/UDP Socket Programming (Completed)
 * **Current Goal:** Understanding and implementing QUIC's core features (0-RTT, Multiplexing) on top of UDP.
-* **Start Date:** Winter Break 2025-2026 (After Fall Semester)
+* **Start Date:** 2026 Spring
 
 ---
 *Coding will begin soon!*
